@@ -1,0 +1,23 @@
+html {
+	height: 100%; /* allows child elements to set their heights to 100% */
+}
+
+body {
+	margin: 0; /* removes whitespace from the top and left of the screen */
+	height: 100%;
+}
+
+#canvas {
+	display: block; /* removes the scrollbars */
+	width: 100%;
+	height: 100%;
+	cursor: url('hand1.cur'), default;
+}
+
+#platform:hover {
+    cursor: url('hand2.cur'), default;
+}
+
+#platform:active {
+    cursor: url('hand3.cur'), default;
+}
