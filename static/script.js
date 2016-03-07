@@ -26,6 +26,8 @@ function drag_platform(evt) {
 }
 
 function drop_platform(evt) {
+	svg.style.cursor = 'url(\'static/hand1.cur\'), auto';
+
 	document.onmousemove = null;
 	document.onmouseup = null;
 }
@@ -35,6 +37,8 @@ platform.addEventListener('mousedown', function (evt) {
 	pointGrabbed.y = evt.clientY;
 	pointGrabbed =
 	pointGrabbed.matrixTransform(svg.getScreenCTM().inverse());
+
+	svg.style.cursor = 'url(\'static/hand3.cur\'), auto';
 
 	document.onmousemove = drag_platform;
 	document.onmouseup = drop_platform;

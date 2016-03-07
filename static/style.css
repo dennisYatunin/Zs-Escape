@@ -11,13 +11,13 @@ body {
 	display: block; /* removes the scrollbars */
 	width: 100%;
 	height: 100%;
-	cursor: url('hand1.cur'), default;
+	cursor: url('hand1.cur'), auto; /* open palm by default */
 }
 
-#platform:hover {
-    cursor: url('hand2.cur'), default;
+#platform {
+    cursor: url('hand2.cur'), auto; /* half-closed palm by default */
 }
 
 #platform:active {
-    cursor: url('hand3.cur'), default;
+    cursor: url('hand3.cur'), auto; /* closed palm by default */
 }
