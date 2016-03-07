@@ -1,12 +1,32 @@
-const PLATFORM_CX = 500, // x-coordinate of center of platform
-PLATFORM_CY = 9800, // y-coordinate of center of platform
-PLATFORM_H1 = 76.1046201299, // distance between center of platform and bottom
-// of bicycle when platformAngle = 0 (90 - 13.8953798701)
-PLATFORM_H2 = 16.1107812069, // distance between center of platform and bottom
-// of bicycle when platformAngle = 180 (30.006161077 - 13.8953798701)
-PLATFORM_L = 300; // half of distance across platform
-
 var platformAngle = 0;
+
+const PLATFORM_CRX = 500, PLATFORM_CRY = 9800,
+// x- and y-coordinates of platform's center of rotation
+PLATFORM_CX = 500, PLATFORM_CY = 9770.00308054,
+// x- and y-coordinates of platform's center when platformAngle = 0
+PLATFORM_H = 46.1077006684, PLATFORM_L = 300;
+// half of platform's height and length
+
+var dx, dy;
+function circlePlatformColliding(cx, cy, r) {
+	cx = cos(-platformAngle) * (cx - PLATFORM_CRX) -
+	sin(-platformAngle) * (cy - PLATFORM_CRY) + PLATFORM_CRX;
+	cy = sin(-platformAngle) * (cx - PLATFORM_CRX) +
+	cos(-platformAngle) * (cy - PLATFORM_CRY) + PLATFORM_CRY;
+
+	dx = Math.abs(cx - PLATFORM_CX);
+	dy = Math.abs(cy - PLATFORM_CY);
+
+	if (dx > PLATFORM_L + r) { return false; }
+	if (dy > PLATFORM_H + r) { return false; }
+
+	if (dx <= PLATFORM_L) { return true; }
+	if (dy <= PLATFORM_H) { return true; }
+
+	dx -= PLATFORM_L;
+	dy -= PLATFORM_H;
+	return dx * dx + dy * dy <= r * r;
+}
 
 /*----------------------------- Platform Control -----------------------------*/
 
@@ -20,12 +40,12 @@ function change_platform_angle() {
 	pointDraggedTo.matrixTransform(svg.getScreenCTM().inverse());
 
 	platformAngle +=
-	Math.atan2(pointDraggedTo.y - PLATFORM_CY, pointDraggedTo.x - PLATFORM_CX) -
-	Math.atan2(pointGrabbed.y - PLATFORM_CY, pointGrabbed.x - PLATFORM_CX);
+	Math.atan2(pointDraggedTo.y - PLATFORM_CRY, pointDraggedTo.x - PLATFORM_CRX)
+	- Math.atan2(pointGrabbed.y - PLATFORM_CRY, pointGrabbed.x - PLATFORM_CRX);
 	platform.setAttributeNS(
 		null, 'transform',
-		'rotate(' + platformAngle * 180 / Math.PI + ' ' + PLATFORM_CX + ' ' +
-		PLATFORM_CY + ')'
+		'rotate(' + platformAngle * 180 / Math.PI + ' ' + PLATFORM_CRX + ' ' +
+		PLATFORM_CRY + ')'
 		);
 
 	pointGrabbed.x = pointDraggedTo.x;
