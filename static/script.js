@@ -1,3 +1,11 @@
+const PLATFORM_CX = 500, // x-coordinate of center of platform
+PLATFORM_CY = 9800, // y-coordinate of center of platform
+PLATFORM_H1 = 76.1046201299, // distance between center of platform and bottom
+// of bicycle when platformAngle = 0 (90 - 13.8953798701)
+PLATFORM_H2 = 16.1107812069, // distance between center of platform and bottom
+// of bicycle when platformAngle = 180 (30.006161077 - 13.8953798701)
+PLATFORM_L = 300; // half of distance across platform
+
 var platformAngle = 0;
 
 /*----------------------------- Platform Control -----------------------------*/
@@ -14,11 +22,12 @@ function drag_platform(evt) {
 	pointDraggedTo.matrixTransform(svg.getScreenCTM().inverse());
 
 	platformAngle +=
-	Math.atan2(pointDraggedTo.y - 9800, pointDraggedTo.x - 500) -
-	Math.atan2(pointGrabbed.y - 9800, pointGrabbed.x - 500);
+	Math.atan2(pointDraggedTo.y - PLATFORM_CY, pointDraggedTo.x - PLATFORM_CX) -
+	Math.atan2(pointGrabbed.y - PLATFORM_CY, pointGrabbed.x - PLATFORM_CX);
 	platform.setAttributeNS(
 		null, 'transform',
-		'rotate(' + platformAngle * 180 / Math.PI + ' 500 9800)'
+		'rotate(' + platformAngle * 180 / Math.PI + ' ' + PLATFORM_CX + ' ' +
+		PLATFORM_CY + ')'
 		);
 
 	pointGrabbed.x = pointDraggedTo.x;
