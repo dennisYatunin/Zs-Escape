@@ -15,9 +15,7 @@ platform = document.getElementById('platform'),
 pointGrabbed = svg.createSVGPoint(),
 pointDraggedTo = svg.createSVGPoint();
 
-function drag_platform(evt) {
-	pointDraggedTo.x = evt.clientX;
-	pointDraggedTo.y = evt.clientY;
+function change_platform_angle() {
 	pointDraggedTo =
 	pointDraggedTo.matrixTransform(svg.getScreenCTM().inverse());
 
@@ -34,11 +32,28 @@ function drag_platform(evt) {
 	pointGrabbed.y = pointDraggedTo.y;
 }
 
-function drop_platform(evt) {
-	svg.style.cursor = 'url(\'static/hand1.cur\'), auto';
+function drag_platform_mouse(evt) {
+	pointDraggedTo.x = evt.clientX;
+	pointDraggedTo.y = evt.clientY;
+	change_platform_angle();
+}
 
+function drag_platform_touch(evt) {
+	pointDraggedTo.x = evt.touches[0].clientX;
+	pointDraggedTo.y = evt.touches[0].clientY;
+	change_platform_angle();
+}
+
+function drop_platform_mouse(evt) {
 	document.onmousemove = null;
 	document.onmouseup = null;
+
+	svg.style.cursor = 'url(\'static/hand1.cur\'), auto';
+}
+
+function drop_platform_touch(evt) {
+	document.ontouchmove = null;
+	document.ontouchend = null;
 }
 
 platform.addEventListener('mousedown', function (evt) {
@@ -47,10 +62,20 @@ platform.addEventListener('mousedown', function (evt) {
 	pointGrabbed =
 	pointGrabbed.matrixTransform(svg.getScreenCTM().inverse());
 
-	svg.style.cursor = 'url(\'static/hand3.cur\'), auto';
+	document.onmousemove = drag_platform_mouse;
+	document.onmouseup = drop_platform_mouse;
 
-	document.onmousemove = drag_platform;
-	document.onmouseup = drop_platform;
+	svg.style.cursor = 'url(\'static/hand3.cur\'), auto';
+});
+
+platform.addEventListener('touchstart', function (evt) {
+	pointGrabbed.x = evt.touches[0].clientX;
+	pointGrabbed.y = evt.touches[0].clientY;
+	pointGrabbed =
+	pointGrabbed.matrixTransform(svg.getScreenCTM().inverse());
+
+	document.ontouchmove = drag_platform_touch;
+	document.ontouchend = drop_platform_touch;
 });
 
 /*----------------------------- Zamansky Control -----------------------------*/
