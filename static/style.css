@@ -5,7 +5,10 @@ html {
 body {
 	margin: 0; /* removes whitespace from the top and left of the screen */
 	height: 100%;
-	background-color: #CCFFFF; /* oooo pretty blue color, might be replaced by svg backgrounds ¯\_(ツ)_/¯
+	/*background-color: #CCFFFF;  oooo pretty blue color, might be replaced by svg backgrounds ¯\_(ツ)_/¯*/
+	background-image: url("landscape.png");
+	background-attachment:fixed;	
+	background-position:center bottom;	
 }
 
 #canvas {
