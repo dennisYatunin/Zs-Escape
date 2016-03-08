@@ -81,8 +81,8 @@ platform.addEventListener('touchstart', function (evt) {
 
 const PLATFORM_CX = 500, PLATFORM_CY = 9770.00308054,
 // x- and y-coordinates of platform's center when platformAngle = 0
-PLATFORM_H = 46.1077006684, PLATFORM_L = 300;
-// half of platform's height and length
+PLATFORM_L = 300, PLATFORM_H = 46.1077006684;
+// half of platform's length and height
 
 var dx, dy;
 function circlePlatformColliding(cx, cy, r) {
