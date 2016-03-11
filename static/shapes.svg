@@ -1,15 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g id="fulcrum" transform="scale(6.29188032844) translate(-22.65, -1052.29) matrix(1 0 0 1.0045 -841.13 573.21)">
-		<!-- height: 200 -->
-		<!-- based on https://openclipart.org/download/181458/1375517629.svg -->
-		<path fill="#dbdbdb" d="m857.61 445.84-12.491 23.738 12.532 7.0554 12.136-7.2153-12.178-23.578z"/>
-		<path fill="#1a1a1a" d="m857.61 445.84-12.491 23.738 12.532 7.0554-0.0417-30.793z"/>
-		<path stroke="#000" stroke-width=".31142" fill="none" d="m857.69 476.68-0.0753-30.886
-			m0.006-0.19116-12.607 24.009 12.687 7.1465 12.205-7.3071z"/>
-	</g>
-	<g id="building" transform="translate(0 -192) scale(8)">
-		<!-- width: 256, height: 192, origin: 0, 192 from top-left -->
+	<g id="building" transform="translate(0 -3) scale(0.125)">
+		<!-- width: 4, height: 3, origin: 0, 3 from top-left -->
 		<!-- based on https://openclipart.org/download/170530/pib-coldarkAlt.svg -->
 		<path style="fill:#483e30" d="m26 4-10-4-10 4-6 4v2h2v10l8 4 6-3 6 3 8-4v-10h2v-2z"/>
 		<path style="fill:#544838" d="m16 21v-9l-6 2v10z"/>
@@ -27,8 +18,15 @@
 		<path style="fill:#544838" d="m7 12v-3l-0.5-1.25-1-0.5-0.5 0.75v3z"/>
 		<path style="fill:#483e30" d="m25 12v-3l0.5-1.25 1-0.5 0.5 0.75v3z"/>
 	</g>
-	<g id="platform" transform="translate(-300 -90) scale(0.58123370729)">
-		<!-- width: 600, height: 120.006161077, origin: 300, 90 from top-left -->
+	<g id="platform" transform="translate(-7.5 -2.250108981) scale(0.01453080045)">
+		<!-- width: 15, height: 3.000145308, origin: 7.5, 2.250108981 from top-left -->
+		<!--
+			scale factor: 15 / 1032.29 = 0.01453080045
+			distance from origin to side: 1032.29 * 0.5 * scale factor = 7.5
+			distance from origin to top: 206.468 * 0.75 * scale factor = 2.250108981
+			distance from origin to center: 206.468 * 0.25 * scale factor = 0.750036327
+			distance from center to bike-level = (206.468 * 0.5 - 23.6457) * scale factor = 1.15648170572
+		-->
 		<!-- taken from http://vignette2.wikia.nocookie.net/nintendo/images/3/34/Mario_Vs._Donkey_Kong_-_Tipping_Stars_-_Platform.svg/revision/latest?cb=20150524030343&path-prefix=en -->
 		<path fill="#530304" d="M109.282,74.572c0,0-57.868,37.285-70.653,55.476h82.171l68.834-55.476H109.282z"/>
 		<polygon fill="#981B1E" points="125.52,74.572 60.071,130.047 99.348,130.047 164.789,74.572 "/>
@@ -61,6 +59,7 @@
 			C884.41,99.825,885.186,97.933,885.894,96.003"/>
 		<rect x="92.251" y="32.958" fill="#ED1C24" width="906.471" height="46.389"/>
 		<rect x="92.251" y="32.55" fill="#F4858E" width="906.471" height="19.683"/>
+		<!-- top edge (top-most y-coordinate: 32.739 - 18.1866 / 2 = 23.6457) -->
 		<line fill="none" stroke="#530304" stroke-width="18.1866" x1="92.251" y1="32.739" x2="998.722" y2="32.739"/>
 		<line fill="none" stroke="#530304" stroke-width="18.1866" x1="92.251" y1="76.394" x2="998.722" y2="76.394"/>
 		<rect x="92.251" y="127.126" fill="#ED1C24" width="906.471" height="46.392"/>
@@ -149,14 +148,19 @@
 		<polygon fill="#FFFFFF" points="908.021,106.006 948.04,127.542 947.732,117.831 917.57,94.189 "/>
 		<polygon fill="#322F30" points="974.311,129.756 963.617,143.372 884.671,77.128 895.374,63.532 "/>
 	</g>
-	<g id="Z" transform="scale(-0.55648302726 0.55648302726) translate(-114 -81.5)">
-		<!-- width: 100, height: 105.95436839, origin: 47.3567056198, 45.3533667217 from top-left (corner of shorts) -->
+	<g id="Z" transform="scale(-0.01001669449 0.01001669449) translate(-114 -81.5)">
+		<!-- width: 1.8, height: 1.90717863102, origin: 0.85242070115, 0.81636060099 from top-left (corner of shorts) -->
 		<!--
-			scale factor = 100 / (199.1-19.4) = 0.55648302726
-			distance from origin to front: (114 - 19.4) * scale factor = 52.6432943795,
-			distance from origin to back: (199.1 - 114) * scale factor = 47.3567056205,
-			distance from origin to top: 81.5 * scale factor = 45.3533667223,
-			distance from origin to bottom: (190.4 - 81.5) * scale factor = 60.6010016694
+			scale factor = 1.8 / (199.1-19.4) = 0.01001669449
+			distance from origin to front: (114 - 19.4) * scale factor = 0.94757929883
+			distance from origin to back: (199.1 - 114) * scale factor = 0.85242070115
+			distance from origin to top: 81.5 * scale factor = 0.81636060099
+			distance from origin to bottom: (190.4 - 81.5) * scale factor = 1.09081803005
+			horizontal distance from origin to front wheel center: (57.7 - 114) * -scale factor = 0.56393989983
+			vertical distance from origin to front wheel center: (152.4 - 81.5) * scale factor = 0.71018363939
+			horizontal distance from origin to back wheel center: (160.8 - 114) * -scale factor = -0.46878130217
+			vertical distance from origin to back wheel center: (152.4 - 81.5) * scale factor = 0.71018363939
+			wheel radius: 36 * scale factor = 0.36060100166
 		-->
 		<!-- based on http://www.realogycsr.com/images/environment/bike_rider.svg -->
 		<path fill="#FAED24" d="M103.5,172.1l10.7,1.2c3.5,0.4,6.6-2.1,7-5.6l-1.3-5.4l-15.3-1.6c-3.1-0.4-6,2-6.3,5.1v0.1
@@ -339,8 +343,8 @@
 		<rect x="88.3" y="50.6" fill="#D92627" width="9.5" height="9.4"/>
 		<path fill="#C2C459" d="M97.7,50.5h-9.5V42c0-3.8,2.9-8.6,9.5-8.6l7.7,1.8L97.7,50.5z"/>
 	</g>
-	<g id="hills" transform="scale(0.39215686274) translate(0 -918)">
-		<!-- width: 1000, height: 627.450980392, origin: 0, 627.450980392 from top-left -->
+	<g id="hills" transform="scale(0.00901960784) translate(0 -918)">
+		<!-- width: 23, height: 14.431372549, origin: 0, 14.431372549 from top-left -->
 		<!-- taken from http://www.halosfun.com/wordpress/wp-content/themes/halos/public/images/home/svg/layer-back-hills.svg -->
 		<path fill="url(#SVGID_1_)" d="M1687.993,658.887c0,0-64.981-12.112-103.839-12.188c-49.933-0.099-172.042,35.015-191.649,52.153
 			c0,0,196.394,67.078,242.177,52.209c45.783-14.871,55.701-88.973,55.701-88.973"/>
